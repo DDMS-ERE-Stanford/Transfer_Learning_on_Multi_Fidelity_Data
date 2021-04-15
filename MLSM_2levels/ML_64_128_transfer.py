@@ -20,7 +20,7 @@ from utils_ddms import *
 
 '''
 "Accelerated training of neural networks via multi-fidelity simulations"
-    TODO: github link
+    https://github.com/DDMS-ERE-Stanford/Multi_Level_Surrogate_Model.git
 
 Sample code to train model on 128x128(hfs) and 64x64(ifs) data. 
 Surrogate model will be trained on muitiple fidelity of data.
