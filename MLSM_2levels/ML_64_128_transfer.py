@@ -48,7 +48,7 @@ Experiment controls
 '''
 # Data quantity selection
 n_hfs = 100   # number of high (128x128) fidelity data
-n_lfs = 300   # number of intermediate (64x64) fidelity data
+n_lfs = 300   # number of low (64x64) fidelity data
 n_test = 100  # number of test data
 
 model_file_name = "model_2layer.pth"
