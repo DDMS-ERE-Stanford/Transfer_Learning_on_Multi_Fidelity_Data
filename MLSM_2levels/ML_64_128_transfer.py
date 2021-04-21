@@ -22,7 +22,7 @@ from utils_ddms import *
 "Accelerated training of neural networks via multi-fidelity simulations"
     https://github.com/DDMS-ERE-Stanford/Multi_Level_Surrogate_Model.git
 
-Sample code to train model on 128x128(hfs) and 64x64(ifs) data. 
+Sample code to train model on 128x128(hfs) and 64x64(lfs) data. 
 Surrogate model will be trained on muitiple fidelity of data.
 Final model will be saved.
 
@@ -48,7 +48,7 @@ Experiment controls
 '''
 # Data quantity selection
 n_hfs = 100   # number of high (128x128) fidelity data
-n_ifs = 300   # number of intermediate (64x64) fidelity data
+n_lfs = 300   # number of intermediate (64x64) fidelity data
 n_test = 100  # number of test data
 
 model_file_name = "model_2layer.pth"
@@ -160,9 +160,9 @@ ps = np.transpose(f['ps'], (3,2,0,1))
 ss = np.transpose(f['ss'], (3,2,0,1))
 f.close()
 
-dat['ks_ifs'] = ks
-dat['ps_ifs'] = ps
-dat['ss_ifs'] = ss
+dat['ks_lfs'] = ks
+dat['ps_lfs'] = ps
+dat['ss_lfs'] = ss
 ##########################################################
 ##########################################################
 filename = 'DATA_het_upscale_64x64_v2.hdf5'
@@ -176,31 +176,31 @@ ps = np.transpose(f['ps'], (3,2,0,1))
 ss = np.transpose(f['ss'], (3,2,0,1))
 f.close()
 
-dat['ks_ifs'] = np.concatenate((dat['ks_ifs'],ks),axis=0)
-dat['ps_ifs'] = np.concatenate((dat['ps_ifs'],ps),axis=0)
-dat['ss_ifs'] = np.concatenate((dat['ss_ifs'],ss),axis=0)
+dat['ks_lfs'] = np.concatenate((dat['ks_lfs'],ks),axis=0)
+dat['ps_lfs'] = np.concatenate((dat['ps_lfs'],ps),axis=0)
+dat['ss_lfs'] = np.concatenate((dat['ss_lfs'],ss),axis=0)
 
-print(dat['ks_ifs'].shape)
-print(dat['ps_ifs'].shape)
-print(dat['ss_ifs'].shape)
+print(dat['ks_lfs'].shape)
+print(dat['ps_lfs'].shape)
+print(dat['ss_lfs'].shape)
 
 '''
 #################################################################
 #################################################################
-Phase1 - experiment [IFS]
+Phase1 - experiment [LFS]
 
-- Build data-loaders using IFS data
+- Build data-loaders using LFS data
 - Build model and modify to build model_phase1
-- Train model_phase1 using IFS data
+- Train model_phase1 using LFS data
 #################################################################
 #################################################################
 '''
 # Build data loaders
-test_loader_ifs, dat = \
-    loader_test(data=dat,num_test=n_test,Nxy=(64,64),bs=40,scale='ifs')
+test_loader_lfs, dat = \
+    loader_test(data=dat,num_test=n_test,Nxy=(64,64),bs=40,scale='lfs')
 
-train_loader = loader_train(data=dat, scale='ifs', \
-                            num_training=n_ifs, Nxy=(64,64), bs=40, order=0)
+train_loader = loader_train(data=dat, scale='lfs', \
+                            num_training=n_lfs, Nxy=(64,64), bs=40, order=0)
 
 #########################################################
 #########################################################
@@ -214,7 +214,7 @@ model_phase1_orig = DenseED_phase1(model_orig,blocks=(7,12,7)).to(device)
 ##########################################################
 ##########################################################
 
-model_phase1, rmse_best = model_train(train_loader=train_loader, test_loader=test_loader_ifs, 
+model_phase1, rmse_best = model_train(train_loader=train_loader, test_loader=test_loader_lfs, 
                                       reps=reps_phase1, n_epochs=n_epochs_phase1, log_interval=1, 
                                       model_orig=model_phase1_orig, 
                                       lr=lr_phase1, wd=wd_phase1, factor=factor_phase1, min_lr=min_lr_phase1)
