@@ -7,7 +7,7 @@ from collections import OrderedDict
 Transfer Learning on Multi-Fidelity Data
 
 Reference:
-    https://github.com/DDMS-ERE-Stanford/Multi_Level_Surrogate_Model
+    https://github.com/DDMS-ERE-Stanford/Transfer_Learning_on_Multi_Fidelity_Data.git
 
 This work adds functions to manupulate the model found in:
     "Convolutional Dense Encoder-Decoder Networks":

@@ -15,12 +15,12 @@ import torch.nn.functional as F
 import copy
 import time
 
-from dense_ed_mlsm import *
-from utils_mlsm import *
+from dense_ed_tlmf import *
+from utils_tlmf import *
 
 '''
 "Accelerated training of neural networks via multi-fidelity simulations"
-    https://github.com/DDMS-ERE-Stanford/Multi_Level_Surrogate_Model.git
+    https://github.com/DDMS-ERE-Stanford/Transfer_Learning_on_Multi_Fidelity_Data.git
 
 Sample code to train model on 128x128(hfs) and 64x64(lfs) data. 
 Surrogate model will be trained on muitiple fidelity of data.

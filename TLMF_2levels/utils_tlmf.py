@@ -18,7 +18,7 @@ import time
 Transfer Learning on Multi-Fidelity Data
 
 Reference:
-    https://github.com/DDMS-ERE-Stanford/Multi_Level_Surrogate_Model
+    https://github.com/DDMS-ERE-Stanford/Transfer_Learning_on_Multi_Fidelity_Data.git
     
 Dong Hee Song
 Mar 31,2021
