@@ -4,8 +4,10 @@ import torch.nn.functional as F
 from collections import OrderedDict
 
 """
-"Accelerated training of neural networks via multi-fidelity simulations"
-    TODO: github link
+Transfer Learning on Multi-Fidelity Data
+
+Reference:
+    https://github.com/DDMS-ERE-Stanford/Multi_Level_Surrogate_Model
 
 This work adds functions to manupulate the model found in:
     "Convolutional Dense Encoder-Decoder Networks":
@@ -13,10 +15,11 @@ This work adds functions to manupulate the model found in:
     
 Dong Hee Song
 Mar 31,2021
+Sep 29,2021
 """
 
 
-class _DenseLayer(nn.Sequential):
+class _DenseLayer(nn.Sequential):  #From "Convolutional Dense Encoder-Decoder Networks"
     # bottleneck layer, bn_size: bottleneck size
     def __init__(self, in_features, growth_rate, drop_rate=0, bn_size=4,
                  bottleneck=False):
@@ -48,7 +51,7 @@ class _DenseLayer(nn.Sequential):
         return z
 
 
-class _DenseBlock(nn.Sequential):
+class _DenseBlock(nn.Sequential):  #From "Convolutional Dense Encoder-Decoder Networks"
     def __init__(self, num_layers, in_features, growth_rate, drop_rate,
                  bn_size=4, bottleneck=False):
         super(_DenseBlock, self).__init__()
@@ -58,7 +61,7 @@ class _DenseBlock(nn.Sequential):
                                 bottleneck=bottleneck)
             self.add_module('denselayer%d' % (i + 1), layer)
 
-class _Transition(nn.Sequential):
+class _Transition(nn.Sequential):  #From "Convolutional Dense Encoder-Decoder Networks"
     def __init__(self, in_features, out_features, encoding=True, drop_rate=0.,
                  last=False, out_channels=3, outsize_even=True):
         super(_Transition, self).__init__()
@@ -104,7 +107,7 @@ class _Transition(nn.Sequential):
                 self.add_module('dropout2', nn.Dropout2d(p=drop_rate))
 
                 
-class DenseED(nn.Module):
+class DenseED(nn.Module):  #From "Convolutional Dense Encoder-Decoder Networks"
     def __init__(self, in_channels, out_channels, blocks, growth_rate=16,
                  num_init_features=64, bn_size=4, drop_rate=0, outsize_even=True,
                  bottleneck=False):

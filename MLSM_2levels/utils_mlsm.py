@@ -13,8 +13,18 @@ import torch.nn.functional as F
 import copy
 import time
 
-#################################################################
-#################################################################
+
+'''
+Transfer Learning on Multi-Fidelity Data
+
+Reference:
+    https://github.com/DDMS-ERE-Stanford/Multi_Level_Surrogate_Model
+    
+Dong Hee Song
+Mar 31,2021
+Sep 29,2021
+'''
+
 def load_GPU_torch():
     '''
     Sets torch device to cuda if cuda is avaliable
@@ -103,7 +113,7 @@ def loader_test(data,num_test,Nxy,bs,scale):
     return test_loader, data
 
 
-def loader_train(data, scale, num_training, Nxy, bs, order):
+def loader_train(data, scale, num_training, Nxy, bs, order=0):
     '''
     Builds the data loaders for the training data.
     
@@ -114,10 +124,11 @@ def loader_train(data, scale, num_training, Nxy, bs, order):
     
     Inputs:
         data - data variable (int)
-        num_test - number of test data sets (int)
+        scale - indicator for fidelity scale of data (str)
+        num_training - number of training data sets (int)
         Nxy - dimension of data ((int,int))
         bs - batch size (int)
-        scale - indicator for fidelity scale of data (str)
+        order - reference int marking the part of the data is being turned into the data loader (int)
     
     Outputs:
         train_loader - data loader with training data
@@ -172,8 +183,8 @@ def test(epoch, model, test_loader):
     
     n_out_pixels_test = len(test_loader.dataset) * test_loader.dataset[0][1].numel()
     model.eval()
-    loss = 0.
-    loss_l1 = 0.
+    loss = 0.  #initial value
+    loss_l1 = 0.  #initial value
     for batch_idx, (input, target) in enumerate(test_loader):
         input, target = input.to(device), target.to(device)
         with torch.no_grad():
@@ -212,7 +223,7 @@ def model_train(train_loader, test_loader, reps, n_epochs, log_interval, model_o
     device = load_GPU_torch()
     
     tic = time.time()
-    rmse_best = 10**6  #just has to be large
+    rmse_best = 10**6  #initial value, just has to be large
     
     n_out_pixels_train = len(train_loader.dataset) * train_loader.dataset[0][1].numel()
     n_out_pixels_test = len(test_loader.dataset) * test_loader.dataset[0][1].numel()
