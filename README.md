@@ -1,3 +1,3 @@
-# Multi_Level_Surrogate_Model
+# Transfer Learning on Multi-Fidelity Data
 Surrogate models trained on multiple levels of data
 Owner: Dong H. Song
