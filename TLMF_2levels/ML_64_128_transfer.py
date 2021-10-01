@@ -29,6 +29,8 @@ Final model will be saved.
 The original encoder-decoder model was based on that of:
     "Convolutional Dense Encoder-Decoder Networks":
     https://github.com/pytorch/vision/blob/master/torchvision/models/densenet.py
+    "Deep Autoregressive Neural Networks for High-Dimensional Inverse Problems in Groundwater Contaminant Source Identification"
+    https://github.com/cics-nd/cnn-inversion
 
 Stanford University, DDMS group
 
