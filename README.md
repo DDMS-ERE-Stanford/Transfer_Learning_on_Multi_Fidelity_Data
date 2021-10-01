@@ -1,5 +1,7 @@
 # Transfer Learning on Multi-Fidelity Data
 
+Repository for python code used in [Transfer Learning on Multi-Fidelity Data](https://arxiv.org/abs/2105.00856)
+
 ## Prerequisites
 
 The requirements.txt lists all Python dependencies for this project. To install:
@@ -8,8 +10,8 @@ The requirements.txt lists all Python dependencies for this project. To install:
 ```
 
 ## Description of included items
-- TLMF_2levels/ML_64_128_transfer.py - experiment to train surrogate model using 64x64 and 128x128 data
-- TLMF_2levels/dense_ed_tlmf.py -  model construction
+- TLMF_2levels/ML_64_128_transfer.py - script to run experiment to train surrogate model using 64x64 and 128x128 data
+- TLMF_2levels/dense_ed_tlmf.py - model construction
 - TLMF_2levels/utils_tlmf.py - supporting utility functions for project
 
 ## Why use transfer learning on multi-fidelity data for surrogate models?
@@ -23,6 +25,8 @@ and the computational gain stemming from their deployment. Multi-fidelity simula
 reduce the cost of data generation for training of a deep convolutional NN(CNN) using transfer learning.
 
 ## Acknowlegement
+[Transfer Learning on Multi-Fidelity Data](https://arxiv.org/abs/2105.00856)
+
 [Convolutional Dense Encoder-Decoder Networks](https://github.com/pytorch/vision/blob/master/torchvision/models/densenet.py)
 
 [Deep Autoregressive Neural Networks for High-Dimensional Inverse Problems in Groundwater Contaminant Source Identification](https://github.com/cics-nd/cnn-inversion)
