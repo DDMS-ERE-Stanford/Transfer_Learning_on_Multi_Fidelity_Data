@@ -195,7 +195,7 @@ Phase1 - experiment [LFS]
 #################################################################
 #################################################################
 '''
-# Build data loaders
+# Build LFS data loaders
 test_loader_lfs, dat = \
     loader_test(data=dat,num_test=n_test,Nxy=(64,64),bs=40,scale='lfs')
 
@@ -231,7 +231,7 @@ Phase2 - experiment [HFS1]
 #################################################################
 #################################################################
 '''
-# Build data loaders
+# Build HFS data loaders
 test_loader_hfs, dat = \
     loader_test(data=dat,num_test=n_test,Nxy=(128,128),bs=40,scale='hfs')
 
