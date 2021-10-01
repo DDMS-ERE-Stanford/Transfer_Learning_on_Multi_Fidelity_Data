@@ -12,6 +12,8 @@ Reference:
 This work adds functions to manupulate the model found in:
     "Convolutional Dense Encoder-Decoder Networks":
     https://github.com/pytorch/vision/blob/master/torchvision/models/densenet.py
+    "Deep Autoregressive Neural Networks for High-Dimensional Inverse Problems in Groundwater Contaminant Source Identification"
+    https://github.com/cics-nd/cnn-inversion
     
 Dong Hee Song
 Mar 31,2021
