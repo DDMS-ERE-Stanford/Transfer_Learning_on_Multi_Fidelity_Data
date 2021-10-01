@@ -25,4 +25,6 @@ reduce the cost of data generation for training of a deep convolutional NN(CNN) 
 ## Acknowlegement
 [Convolutional Dense Encoder-Decoder Networks](https://github.com/pytorch/vision/blob/master/torchvision/models/densenet.py)
 
+[Deep Autoregressive Neural Networks for High-Dimensional Inverse Problems in Groundwater Contaminant Source Identification](https://github.com/cics-nd/cnn-inversion)
+
 Last updated 9/30/2021
