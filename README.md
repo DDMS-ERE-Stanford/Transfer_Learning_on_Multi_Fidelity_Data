@@ -28,11 +28,11 @@ In this project, the CNN is trained using high-fidelity-simulations(HFS) and low
 
 - Phase1: Train CNN layers LFS data
   - State1.1: Initialize encoder-decoder model (M)
-  - State1.2: The last layer of the model (M) is replaced with a temporary layer. This modified model (M1) has outputs which match the dimensions of LFS. M1 is trained on LFS
+  - State1.2: The last layer of the M is replaced with a temporary layer. This modified model (M1) has outputs which match the dimensions of LFS. M1 is trained on LFS
 - Phase2: Train original last layer using HFS
-  - State2.1: Replace temporary layer with the original last layer from model (M). This mododified model (M2) now has the output dimensions of HFS. 
+  - State2.1: Replace temporary layer in M1 with the original last layer from M. This mododified model (M2) now has the output dimensions of HFS. 
   - State2.2: Lock the all of the weights trained in Phase1 so that last layer of M2 can be updated. Train M2 using HFS.
- - Phase3: Fine tune entire CNN by unlocking all weights and training on HFS
+ - Phase3: Fine-tune entire CNN by unlocking all weights and training on HFS
 
 An example of multi-scale data is provided below:
 
