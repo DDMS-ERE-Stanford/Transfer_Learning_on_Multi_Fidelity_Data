@@ -24,6 +24,9 @@ NN training, the usefulness of NN-based surrogates hinges on the balance between
 and the computational gain stemming from their deployment. Multi-fidelity simulations can be used to 
 reduce the cost of data generation for training of a deep convolutional NN(CNN) using transfer learning.
 
+## Numerical Example
+<img src="https://github.com/DDMS-ERE-Stanford/Transfer_Learning_on_Multi_Fidelity_Data/blob/745d8e34f872a60f25bc7cb01505a0a90cc04a2c/images/img_log_perm_v4.png" width='500>
+
 ## Acknowlegement
 [Transfer Learning on Multi-Fidelity Data](https://arxiv.org/abs/2105.00856)
 
