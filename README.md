@@ -24,8 +24,15 @@ NN training, the usefulness of NN-based surrogates hinges on the balance between
 and the computational gain stemming from their deployment. Multi-fidelity simulations can be used to 
 reduce the cost of data generation for training of a deep convolutional NN(CNN) using transfer learning.
 
-## Numerical Example
-<img src="https://github.com/DDMS-ERE-Stanford/Transfer_Learning_on_Multi_Fidelity_Data/blob/745d8e34f872a60f25bc7cb01505a0a90cc04a2c/images/img_log_perm_v4.png" width='500>
+## Numerical Example: Multi Phase Flow
+The content of [Transfer Learning on Multi-Fidelity Data](https://arxiv.org/abs/2105.00856) 
+presents multi-phase flow as the computational example. 
+
+Numerical solution of problems involving multi-phase flow in porous media is notoriously difficult because of the high degree of nonlinearity and stiffness of the governing PDEs. The forward solves of these PDEs using simulation based workflows are computationally expensive.
+
+In the numerical example we consider horizontal flow of two incompressible and immiscible fluids, with viscosities <img src="https://render.githubusercontent.com/render/math?math=\mu_{1}">$\mu_1$ and $\mu_2$, in a heterogeneous, incompressible, and isotropic porous medium $D$. The latter is characterized by porosity $\phi$ and intrinsic permeability $k$. The porosity is assumed to be constant $\phi=0.25$, and intrinsic permeability $k(\mathbf x)$ is treated as a random variable. {\color{blue} The time domain $t$ is between zero and a specified terminal time $T$.} Mass conservation of the $\ell$th fluid phase ($\ell=1,2$) implies
+
+<img src="https://github.com/DDMS-ERE-Stanford/Transfer_Learning_on_Multi_Fidelity_Data/blob/745d8e34f872a60f25bc7cb01505a0a90cc04a2c/images/img_log_perm_v4.png" width='500'>
 
 ## Acknowlegement
 [Transfer Learning on Multi-Fidelity Data](https://arxiv.org/abs/2105.00856)
