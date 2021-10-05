@@ -26,7 +26,7 @@ In this project, the CNN is trained using high-fidelity-simulations(HFS) and low
 
 <img src="https://github.com/DDMS-ERE-Stanford/Transfer_Learning_on_Multi_Fidelity_Data/blob/4272638e0e038898f4ed3239abf0a002b359a5aa/images/img_method_v9.png" width='1200'>
 
-- Phase1: Train CNN layers LFS data
+- Phase1: Train CNN layers LFS
   - State1.1: Initialize encoder-decoder model (M)
   - State1.2: The last layer of the M is replaced with a temporary layer. This modified model (M1) has outputs which match the dimensions of LFS. M1 is trained on LFS
 - Phase2: Train original last layer using HFS
@@ -34,7 +34,7 @@ In this project, the CNN is trained using high-fidelity-simulations(HFS) and low
   - State2.2: Lock the all of the weights trained in Phase1 so that last layer of M2 can be updated. Train M2 using HFS.
  - Phase3: Fine-tune entire CNN by unlocking all weights and training on HFS
 
-An example of multi-scale data is provided below:
+A snapshot of multi-scale data is provided below:
 
 <img src="https://github.com/DDMS-ERE-Stanford/Transfer_Learning_on_Multi_Fidelity_Data/blob/4272638e0e038898f4ed3239abf0a002b359a5aa/images/img_multi_scale_v5.png" width='650'>
 
